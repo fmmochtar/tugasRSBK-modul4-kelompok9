@@ -110,9 +110,11 @@ public class Mahasiswa {
             System.out.println(ps);
             ps.executeUpdate();
             System.out.println("INFO: Data has been successfully modified for " + NAMA + ".");
+            return "/Success.xhtml?faces-redirect=true";
 
           }else {
                 System.out.println("ERROR: Invalid data input at 'penjurusan'.");
+                return "/Error.xhtml?faces-redirect=true";
           }
           
       } catch (Exception e) {
@@ -160,9 +162,12 @@ public class Mahasiswa {
             PreparedStatement ps=connection.prepareStatement("insert into mahasiswa(NIM, Nama, Penjurusan) value('"+NIM+"','"+NAMA+"','"+PENJURUSAN+"')");
             ps.executeUpdate();
             System.out.println("INFO: Data has been successfully added for " + NAMA + ".");
+            return "/Success.xhtml?faces-redirect=true";
 
           }else {
                 System.out.println("ERROR: Invalid data input at 'penjurusan'.");
+                return "/Error.xhtml?faces-redirect=true";
+
           }
           
       } catch (Exception e) {
